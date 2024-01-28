@@ -33,6 +33,14 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
+    - name: vcpkg-action
+      # You may pin to the exact commit or the version.
+      # uses: johnwason/vcpkg-action@7c4b562bb35ef5a01d9d728acc90100b107dee4d
+      uses: johnwason/vcpkg-action@v6
+      with:
+        pkgs: jsoncpp detours
+          
+
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.SOLUTION_FILE_PATH}}
